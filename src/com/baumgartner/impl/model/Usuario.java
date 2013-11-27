@@ -67,7 +67,7 @@ public class Usuario implements Serializable {
 
 	public List<Nivel> getNivels() {
 		if (this.nivels == null){
-			nivels = new ArrayList<Nivel>();
+			this.nivels = new ArrayList<Nivel>();
 		}
 		return this.nivels;
 	}
