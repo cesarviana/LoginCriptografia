@@ -82,7 +82,7 @@
 	<login-config>
 		<auth-method>FORM</auth-method>
 		<form-login-config>
-			<form-login-page>/login.xhtml</form-login-page>
+			<form-login-page>/default/login.xhtml</form-login-page>
 			<form-error-page>/error-pages/login-error.xhtml</form-error-page>
 		</form-login-config>
 	</login-config>
