@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title><ui:insert name="titulo">Título</ui:insert></title>
+	<h:outputStylesheet library="css" name="estilo.css" />
+	<h:outputScript library="js" name="funcoes.js" />
+</h:head>
+<h:body>
+	<div>
+		<p:ajaxStatus onstart="mostrar('loader', 2000)"
+			oncomplete="esconder('loader')" />
+		<p:graphicImage id="loader" class="hidden" 
+			library="imagens" name="loader.gif" />
+	</div>
+	<div id="horizontal">
+		<div id="horizontal-centro">
+			<div id="logo">
+				<h:graphicImage library="imagens" name="logo.png" />
+			</div>
+			<div id="login">
+				<ui:insert name="conteudo" />
+			</div>
+		</div>
+	</div>
+	<div id="rodape">
+		<ui:include src="/util/rodape.xhtml" />
+	</div>
+</h:body>
+</html>

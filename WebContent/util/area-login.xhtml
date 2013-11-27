@@ -1,0 +1,25 @@
+<ui:component
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	<div class="area-login" style="width: 370px">
+		<p:panel header="Login">
+			<form action="j_security_check" method="post">
+				<h:panelGrid id="grid" cellspacing="2" columns="2">
+					<h:outputLabel for="j_username" value="Usuário" />
+					<h:inputText size="26" id="j_username" required="true"
+						requiredMessage="Informe o login." />
+					<h:outputLabel for="j_password" value="Senha" />
+					<h:inputSecret size="26" id="j_password" required="true"
+						requiredMessage="Informe a senha." />
+					<h:commandButton value="Entrar" type="submit" />
+				</h:panelGrid>
+			</form>
+			<a href="http://localhost:8080/LoginCriptografia/redefinir-senha.xhtml"
+				class="esqueci-minha-senha">Esqueceu sua senha?</a>
+		</p:panel>
+		<p class="msg-erro">#{msg}</p>
+	</div>
+</ui:component>
+<!-- Fim div area-login -->

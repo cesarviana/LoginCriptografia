@@ -1,0 +1,36 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/template-inicio.xhtml">
+	<ui:define name="titulo">Redefinir senha</ui:define>
+	<ui:define name="conteudo">
+		<h:form>
+			<p:growl id="msg" />
+			<p:panel header="Redefinir senha" style="width:450px">
+				<p>Informe o e-mail que você tem cadastrado no sistema.</p>
+				<h:panelGrid columns="2">
+					<p:outputLabel value="Seu e-mail" />
+					<h:inputText size="33" style="margin-left:10px" id="email" required="true"
+						requiredMessage="Informe o e-mail."
+						value="#{redefinirSenhaBean.email}" />
+				</h:panelGrid>
+				<p:commandButton action="#{redefinirSenhaBean.enviarEmail}"
+					value="Enviar" update="msg, dlg" />
+				<a href="default/index.xhtml" class="esqueci-minha-senha" style="top:25px">Voltar para a
+					tela de login</a>
+			</p:panel>
+			<p:dialog id="dlg" visible="#{redefinirSenhaBean.redefinicaoOk}"
+				widgetVar="dlg" closable="false" showEffect="fold"
+				header="E-mail de redefinição enviado">
+				<p>
+					Enviamos informações sobre como redefinir sua senha para a sua
+					caixa de entrada. <br /> Siga as instruções e tente realizar o
+					acesso novamente.
+				</p>
+				<p:commandButton value="OK"
+					onclick="redireciona('default/index.xhtml')" />
+			</p:dialog>
+		</h:form>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/template.xhtml">
+	<ui:define name="titulo">Índex</ui:define>
+	<ui:define name="conteudo">
+
+		<h:form id="form">
+			<p:growl id="growl" autoUpdate="true" />
+
+			<p:dataTable id="usuarios" var="usuario"
+				value="#{tableBean2.usuarios}" rowKey="#{usuario.cdUsuario}"
+				selection="#{tableBean2.usuariosSelecionados}"
+				selectionMode="multiple" paginator="true" scrollable="true"
+				scrollHeight="300" editable="true">
+
+				<p:ajax event="rowSelect" update="viewButton deleteButton" />
+				<p:ajax event="rowEdit" listener="#{tableBean2.onRowEdit}" />
+				<p:ajax event="rowEditCancel"
+					listener="#{tableBean2.onRowEditCancel}" update=":form:usuarios" />
+
+				<p:column headerText="Código">
+					#{usuario.cdUsuario}
+        		</p:column>
+
+				<p:column headerText="Login">
+					#{usuario.login}
+        		</p:column>
+
+				<p:column headerText="Hash">
+					<p:cellEditor>
+						<f:facet name="output">
+							#{usuario.senha}
+						</f:facet>
+						<f:facet name="input">
+							<p:inputText value="#{usuario.senha}" style="width:98%" />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+
+				<p:column style="width:32px">
+					<p:rowEditor />
+				</p:column>
+
+				<f:facet name="footer">
+					<p:commandButton id="viewButton" value="View" icon="ui-icon-search"
+						update=":form:selectedUsers" oncomplete="PF('userDialog').show()"
+						disabled="#{empty tableBean2.usuariosSelecionados}" />
+
+					<p:commandButton id="deleteButton" value="Delete"
+						icon="ui-icon-trash" update=":form:deleteDialog"
+						oncomplete="PF('deleteDialog').show()"
+						disabled="#{empty tableBean2.usuariosSelecionados}" />
+
+					<p:commandButton id="testButton" value="Test"
+						action="#{tableBean2.teste}" />
+
+				</f:facet>
+
+			</p:dataTable>
+
+			<p:dialog id="dialog" header="Usuários selecionados"
+				widgetVar="userDialog" resizable="false" width="800"
+				showEffect="fold" hideEffect="clip">
+
+				<p:dataTable id="selectedUsers"
+					value="#{tableBean2.usuariosSelecionados}" var="usuario">
+
+					<p:column headerText="Código">  
+            			#{usuario.cdUsuario}  
+        			</p:column>
+
+					<p:column headerText="Login">  
+	            		#{usuario.login}  
+        			</p:column>
+
+					<p:column headerText="Hash">  
+        	    		#{usuario.senha}  
+    	    		</p:column>
+
+				</p:dataTable>
+			</p:dialog>
+
+			<p:dialog id="deleteDialog" widgetVar="deleteDialog" width="800"
+				showEffect="fold" hideEffect="clip">
+				<f:facet name="header">
+					<h:outputText value="Deseja realmente excluir estes usuários?" />
+				</f:facet>
+
+				<p:dataTable id="selectedUsersToDelete"
+					value="#{tableBean2.usuariosSelecionados}" var="usuario">
+
+					<p:column headerText="Código">  
+            			#{usuario.cdUsuario}  
+        			</p:column>
+
+					<p:column headerText="Login">  
+	            		#{usuario.login}  
+        			</p:column>
+
+					<p:column headerText="Hash">  
+        	    		#{usuario.senha}  
+    	    		</p:column>
+
+				</p:dataTable>
+
+				<f:facet name="footer">
+					<p:commandButton value="Excluir" icon="ui-icon-trash"
+						action="#{tableBean2.excluir}"
+						onclick="PF('deleteDialog').close()" />
+					<p:commandButton value="Cancelar" icon="ui-icon-circle-close"
+						onclick="PF('deleteDialog').close()" />
+
+				</f:facet>
+			</p:dialog>
+
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title><ui:insert name="titulo">Título</ui:insert></title>
+	<h:outputStylesheet library="css" name="estilo.css" />
+	<h:outputScript library="js" name="funcoes.js" />
+</h:head>
+<h:body>
+	<p:layout fullPage="true">
+			<p:layoutUnit position="north" size="45" style="padding:0;">
+				<ui:include src="/util/cabecalho.xhtml" />
+			</p:layoutUnit>
+		<p:layoutUnit position="center">
+			<div style="margin: 30px">
+				<ui:insert name="conteudo">
+					<p>Espaço para o conteúdo.</p>
+					<p onclick="alturaTela()">aqui</p>
+				</ui:insert>
+			</div>
+		</p:layoutUnit>
+		<p:layoutUnit position="west" size="250">Oi</p:layoutUnit>
+		<p:layoutUnit position="south" size="40">
+			<p:outputLabel
+				style="font-weight:bold; color:#0a8abc; font-size:12px; text-align: center; margin:5px">
+					Baumgartner Soluções Web - Todos os direitos reservados
+				</p:outputLabel>
+		</p:layoutUnit>
+	</p:layout>
+</h:body>
+</html>

@@ -1,0 +1,13 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/template-inicio.xhtml">
+	<ui:define name="titulo">Falha durante o login</ui:define>
+	<ui:define name="conteudo">
+		<ui:include src="../util/area-login.xhtml">
+			<ui:param name="msg"
+				value="O login e/ou a senha informados estão
+					incorretos." />
+		</ui:include>
+	</ui:define>
+</ui:composition>

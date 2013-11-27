@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>LoginCriptografia</display-name>
+	<welcome-file-list>
+		<welcome-file>default/index.xhtml</welcome-file>
+	</welcome-file-list>
+	<!-- JSF CONFIGURATION -->
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.xhtml</url-pattern>
+	</servlet-mapping>
+
+	<context-param>
+		<param-name>primefaces.THEME</param-name>
+		<param-value>cupertino</param-value>
+	</context-param>
+
+	<!-- CAPTCHA -->
+	<context-param>
+		<param-name>primefaces.PRIVATE_CAPTCHA_KEY</param-name>
+		<param-value>6LcgfuoSAAAAAFEPBmC1_jG-gWu9YvNSRWiUcDRJ</param-value>
+	</context-param>
+	<context-param>
+		<param-name>primefaces.PUBLIC_CAPTCHA_KEY</param-name>
+		<param-value>6LcgfuoSAAAAAP2_Ur50lVs5wDYbVTUJ6srEImOp</param-value>
+	</context-param>
+
+	<!-- SECURITY -->
+	<security-constraint>
+
+		<web-resource-collection>
+			<web-resource-name>Recursos restringidos</web-resource-name>
+			<url-pattern>/default/*</url-pattern>
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+
+		<auth-constraint>
+			<role-name>usuario</role-name>
+			<role-name>admin</role-name>
+		</auth-constraint>
+
+		<user-data-constraint>
+			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+		</user-data-constraint>
+
+	</security-constraint>
+	<!-- SECOND SECURITY CONSTRAINT -->
+	<security-constraint>
+
+		<web-resource-collection>
+			<web-resource-name>Recursos restringidos</web-resource-name>
+			<url-pattern>/admin/*</url-pattern>
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+
+		<auth-constraint>
+			<role-name>admin</role-name>
+		</auth-constraint>
+
+		<user-data-constraint>
+			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+		</user-data-constraint>
+
+	</security-constraint>
+
+	<!-- ROLES -->
+	<security-role>
+		<role-name>tomcat</role-name>
+	</security-role>
+
+	<!-- LOGIN CONFIG -->
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<form-login-config>
+			<form-login-page>/login.xhtml</form-login-page>
+			<form-error-page>/error-pages/login-error.xhtml</form-error-page>
+		</form-login-config>
+	</login-config>
+
+	<!-- ERROR PAGES -->
+	<error-page>
+		<error-code>403</error-code>
+		<location>/error-pages/erro403.xhtml</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error-pages/erro404.xhtml</location>
+	</error-page>
+	<error-page>
+		<error-code>408</error-code>
+		<location>/error-pages/erro408.xhtml</location>
+	</error-page>
+
+</web-app>

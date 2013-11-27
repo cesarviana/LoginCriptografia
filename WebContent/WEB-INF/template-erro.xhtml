@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title><ui:insert name="titulo">Título</ui:insert></title>
+	<h:outputStylesheet library="css" name="estilo.css" />
+	<h:outputScript library="js" name="funcoes.js" />
+</h:head>
+<h:body style="background:#142b58">
+	<ui:insert name="conteudo">
+		<p:dialog global="true" visible="true" widgetVar="dialog"
+			closable="false" width="600" showEffect="fold" header="#{tituloerro}"
+			severity="error">
+			<div style="width: 100%; background: #black; margin: 10px">
+				<div style="width: 80%; float: right;">
+					<p>#{motivo}</p>
+				</div>
+				<div style="width: 20%; float: left;">
+					<p:graphicImage library="imagens" name="#{img}" width="90%" />
+				</div>
+			</div>
+			<f:facet name="footer">
+				<p:commandButton value="OK"
+					onclick="redireciona('/LoginCriptografia/default/index.xhtml')" />
+			</f:facet>
+		</p:dialog>
+	</ui:insert>
+</h:body>
+</html>

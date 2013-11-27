@@ -1,0 +1,148 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	font-family: Verdana, Tahoma, Arial;
+}
+/* tamanho da fonte */
+/* .ui-widget,.ui-widget .ui-widget { */
+/* 	font-size: 102% !important; */
+/* } */
+
+#loader {
+	float: right;
+	margin: 10px;
+	-webkit-transition: opacity 1s ease-in-out;
+	-moz-transition: opacity 1s ease-in-out;
+	-o-transition: opacity 1s ease-in-out;
+}
+
+/* utilitárias */
+.hidden {
+	opacity: 0;
+	visibility: hidden;
+}
+.clr {
+	clear: both;
+}
+
+#conteudo {
+	min-height: 60%;
+	margin: 100px 20px 150px 20px;
+	padding: 15px;
+	background: #f9f9f9;
+	box-shadow: 0 0 50px #ececec;
+}
+
+
+#rodape {
+	position: absolute;
+	bottom: 0;
+	height: 80px;
+	width: 99%;
+	border-bottom: 15px solid #0a8abc;
+}
+
+#rodape img.logo {
+	position: relative;
+	float: right;
+	width: 100px;
+	margin: 5px 15px;
+}
+
+/*Telas de login*/
+#horizontal {
+	width: 99%;
+	height: 250px;
+	position: absolute;
+	top: 25%;
+	background: #fff;
+	padding-top: 30px;
+}
+
+#horizontal-centro {
+	width: 900px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+#logo {
+	float: left;
+}
+
+#login {
+	float: right;
+	margin-top: 15px;
+	width: 400px
+}
+
+p.msg-erro {
+	color: #aa0000;
+	margin-left: 10px;
+	font-weight: bold;
+}
+
+.esqueci-minha-senha {
+	font-size: 15px;
+	float: right;
+	position: relative;
+	top: -10px;
+	text-decoration: none;
+}
+/*Fim telas de login*/
+
+/*Componente p:layout*/
+.ui-layout-unit{
+	border-radius:0;
+}
+.ui-layout-unit-content{
+	background:#fff;
+}
+/* p:layout --> p:unitLayout north*/
+.ui-layout-north {
+	z-index: 20 !important;
+	overflow: visible !important;
+}
+.ui-layout-north .ui-layout-unit-content {
+	overflow: visible !important;
+}
+/*Fim component p:layout*/
+
+/*Barra de menu*/
+.ui-menubar {
+	background: #0a8abc;
+	border-radius: 0;
+	position: relative;
+	top: -8px;
+}
+.ui-menu-list{
+	background: #095e9f;
+	border:none;
+	border-radius:0;
+}
+li.ui-menuitem.ui-widget.ui-corner-all.ui-menuitem-active{
+	background: transparent;
+}
+a.ui-menuitem-link.ui-corner-all.ui-state-hover{
+	background:#0d4d8b;
+}
+.ui-menuitem-text {
+	color: #fff;
+}
+/*Fim barra de menu*/
+
+/*Mensagem*/
+.ui-growl-item-container {
+	box-shadow: none;
+	border: 0;
+	border-radius: 4px;
+	border-right: solid 10px #0a8abc;
+}
+
+.ui-growl-item {
+	background: #f2f5f7;
+}
+/*Fim componente mensagem*/
+
+/*Componente p:panelGrid --> apaga as bordas */
+.ui-panelgrid-even {border-color:transparent;}
+.ui-panelgrid-odd {border-color:transparent;}

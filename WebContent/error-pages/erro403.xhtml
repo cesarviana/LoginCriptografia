@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<ui:composition template="/WEB-INF/template-erro.xhtml">
+	<ui:define name="titulo">Acesso negado</ui:define>
+	<ui:define name="conteudo">
+		<ui:include src="/util/dialog-erro.xhtml">
+			<ui:param name="tituloerro" value="Acesso negado" />
+			<ui:param name="motivo"
+				value="Você não tem permissão para acessar este conteúdo. 
+			Caso discorde desta restrição contate o administrador do sistema." />
+			<ui:param name="img"
+				value="403.png" />
+		</ui:include>
+	</ui:define>
+</ui:composition>
+</html>
