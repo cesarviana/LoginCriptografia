@@ -108,6 +108,9 @@ p.msg-erro {
 /*Fim component p:layout*/
 
 /*Barra de menu*/
+.ui-menu.ui-menubar.ui-widget.ui-widget-content.ui-corner-all.ui-helper-clearfix{
+	position: relative; right: 2px; width:100%;
+}
 .ui-menubar {
 	background: #0a8abc;
 	border-radius: 0;

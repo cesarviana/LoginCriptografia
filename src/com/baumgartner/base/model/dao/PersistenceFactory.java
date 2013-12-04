@@ -19,5 +19,4 @@ public class PersistenceFactory {
 	public EntityManager getEntityManager() {
 		return em;
 	}
-
 }
